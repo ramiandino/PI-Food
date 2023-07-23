@@ -6,6 +6,10 @@ import RecipeCreate from "./components/RecipeCreate";
 import Detail from "./components/Detail";
 import Error from "./components/Error";
 
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:3001";
+
 function App() {
   return (
     <BrowserRouter>
