@@ -3,7 +3,7 @@ import axios from "axios";
 export function getRecipes() {
   return async function (dispatch) {
     try {
-      var json = await axios.get("http://localhost:3001/recipes", {}); //Conexion entre el back y el front. 3 lineas de codigo!!! por default hace axios.get
+      var json = await axios.get("/recipes", {}); //Conexion entre el back y el front. 3 lineas de codigo!!! por default hace axios.get
       return dispatch({
         type: "GET_RECIPES",
         payload: json.data,
@@ -20,9 +20,7 @@ export function getRecipes() {
 export function getNameRecipes(name) {
   return async function (dispatch) {
     try {
-      const json = await axios.get(
-        `http://localhost:3001/recipes?name=${name}`
-      ); //me va a llegar por payload lo que el usuario este escribiendo en la barra de busqueda.
+      const json = await axios.get(`/recipes?name=${name}`); //me va a llegar por payload lo que el usuario este escribiendo en la barra de busqueda.
       return dispatch({
         type: "GET_NAME_RECIPES",
         payload: json.data, //me va a devolver lo que devuelta la ruta una vez asignado el name.
@@ -38,7 +36,7 @@ export function getNameRecipes(name) {
 
 export function getDiets() {
   return async function (dispatch) {
-    const info = await axios.get("http://localhost:3001/diets");
+    const info = await axios.get("/diets");
     return dispatch({ type: "GET_DIETS", payload: info.data });
   };
 }
@@ -46,7 +44,7 @@ export function getDiets() {
 export function postRecipe(payload) {
   //me va a llegar en el front este payload.
   return async function (dispatch) {
-    const info = await axios.post("http://localhost:3001/post", payload); //hacer el post del payload.
+    const info = await axios.post("/post", payload); //hacer el post del payload.
     console.log(info);
     return info;
   };
@@ -104,7 +102,7 @@ export function resetRecipes() {
 
 // export const getDetail = (id) => {
 //   return function (dispatch) {
-//     fetch(`http://localhost:3001/recipes/${id}`)
+//     fetch(`/recipes/${id}`)
 //       .then((response) => response.json())
 //       .then((data) => dispatch({ type: "GET_DETAIL", payload: data }));
 //   };
@@ -112,7 +110,7 @@ export function resetRecipes() {
 export function getDetail(recipeId) {
   return async function (dispatch) {
     try {
-      const json = await axios.get(`http://localhost:3001/recipes/${recipeId}`);
+      const json = await axios.get(`/recipes/${recipeId}`);
       return dispatch({
         type: "GET_DETAIL",
         payload: json.data,
@@ -126,7 +124,7 @@ export function getDetail(recipeId) {
 export function deleteRecipe(recipeId) {
   return async function (dispatch) {
     try {
-      await axios.delete(`http://localhost:3001/delete/${recipeId}`);
+      await axios.delete(`/delete/${recipeId}`);
       return dispatch({
         type: "GET_DETAIL",
       });
