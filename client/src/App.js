@@ -8,7 +8,7 @@ import Error from "./components/Error";
 
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://pi-food-production-2c99.up.railway.app/";
 
 function App() {
   return (
