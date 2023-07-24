@@ -169,3 +169,25 @@
     transform: scale(0.3);
 }
 
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .navBar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navIzq,
+    .navDer {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .containerCards {
+        width: 100%;
+        margin-left: 0;
+        /* Elimina el margen izquierdo para centrar en dispositivos móviles */
+    }
+
+    /* Ajusta estilos para otras secciones que lo necesiten */
+}
+
